@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Cadastro de Jogo</title>
+</h:head>
+<h:body>
+    <h:form id="formCadastro">
+        <h3>Cadastro de Jogo</h3>
+
+        <h:panelGrid columns="2" cellpadding="5">
+            <h:outputLabel value="V1:" for="v1"/>
+            <p:inputText id="v1" value="#{jogoBean.jogo.v1}">
+                <f:validateLongRange minimum="1" maximum="10" />
+            </p:inputText>
+
+            <h:outputLabel value="V2:" for="v2"/>
+            <p:inputText id="v2" value="#{jogoBean.jogo.v2}">
+                <f:validateLongRange minimum="1" maximum="10" />
+            </p:inputText>
+
+            <h:outputLabel value="V3:" for="v3"/>
+            <p:inputText id="v3" value="#{jogoBean.jogo.v3}">
+                <f:validateLongRange minimum="1" maximum="10" />
+            </p:inputText>
+
+            <h:outputLabel value="V4:" for="v4"/>
+            <p:inputText id="v4" value="#{jogoBean.jogo.v4}">
+                <f:validateLongRange minimum="1" maximum="10" />
+            </p:inputText>
+
+            <h:outputLabel value="V5:" for="v5"/>
+            <p:inputText id="v5" value="#{jogoBean.jogo.v5}">
+                <f:validateLongRange minimum="1" maximum="10" />
+            </p:inputText>
+        </h:panelGrid>
+
+        <p:commandButton value="Salvar" action="#{jogoBean.salvar}" update=":formCadastro"/>
+        <p:message for="v1" />
+        <p:message for="v2" />
+        <p:message for="v3" />
+        <p:message for="v4" />
+        <p:message for="v5" />
+
+        <br/>
+        <h:link value="Ir para a página de listagem" outcome="listagem.xhtml" />
+    </h:form>
+</h:body>
+</html>
