@@ -80,7 +80,7 @@ public class JogoBean {
         return null;
     }
 
-    public void calcularMaior() {
+    public void calcularMaior(Jogo jogo) {
         if (jogo != null) {
         	Integer primeiraComparacao = Math.max(jogo.getV1(), jogo.getV2());
         	Integer segundaComparacao = Math.max(primeiraComparacao, jogo.getV3());
