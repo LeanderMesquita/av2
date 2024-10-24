@@ -94,7 +94,13 @@
                 </p:column>
             </p:dataTable>
         </h:panelGroup>
-        
+       
+       	<p:commandButton value="Calcular Maior Global"
+	                 	 action="#{jogoBean.calcularMaiorValorGlobal}"
+	                 	 update="formListagem" />
+   
+       	<h:outputLabel value="Maior valor entre todos os jogos:" />
+		<h:outputText value="#{jogoBean.maiorValorGlobal}" /> 
        
         <p:dialog header="Maior valor" widgetVar="dlgMaior" modal="true" showEffect="fade" hideEffect="fade">
             <h:outputText value="O maior número entre v1 e v5 é: #{jogoBean.maiorValor}" />

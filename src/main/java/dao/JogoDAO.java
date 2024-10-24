@@ -53,4 +53,13 @@ public class JogoDAO {
 		em.getTransaction().commit();
 		em.close();
 	}
+	
+	public static Integer findMaxValuePerGame() {
+        EntityManager em = JPAUtil.criarEntityManager();
+        Query query = em.createNamedQuery("Jogo.findMaxValuePerGame");
+        Integer maxValue = (Integer) query.getSingleResult();
+        em.close();
+        return maxValue;
+    }
+	
 }

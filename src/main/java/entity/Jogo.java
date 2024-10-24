@@ -6,10 +6,23 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+@NamedQueries({
+    @NamedQuery(
+        name = "Jogo.findMaxValuePerGame",
+        query = "SELECT MAX(CASE WHEN j.v1 > j.v2 AND j.v1 > j.v3 AND j.v1 > j.v4 AND j.v1 > j.v5 THEN j.v1 " +
+                "WHEN j.v2 > j.v1 AND j.v2 > j.v3 AND j.v2 > j.v4 AND j.v2 > j.v5 THEN j.v2 " +
+                "WHEN j.v3 > j.v1 AND j.v3 > j.v2 AND j.v3 > j.v4 AND j.v3 > j.v5 THEN j.v3 " +
+                "WHEN j.v4 > j.v1 AND j.v4 > j.v2 AND j.v4 > j.v3 AND j.v4 > j.v5 THEN j.v4 " +
+                "ELSE j.v5 END) " +
+                "FROM Jogo j"
+    )
+})
 public class Jogo {
 	
 	@Id

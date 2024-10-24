@@ -20,7 +20,9 @@ public class JogoBean {
     private Jogo jogo = new Jogo();
     private List<Jogo> jogos = new ArrayList<Jogo>();
     private int maiorValor;
+    private int maiorValorGlobal;
     private String resultado;
+    
     
     public Jogo getJogo() {
         return jogo;
@@ -43,6 +45,10 @@ public class JogoBean {
         return maiorValor;
     }
 
+	public int getMaiorValorGlobal() {
+        return maiorValorGlobal;
+    }
+	
     public String getResultado() {
 		return resultado;
 	}
@@ -105,6 +111,10 @@ public class JogoBean {
         } else {
             resultado = "Não";
         }
+    }
+    
+    public void calcularMaiorValorGlobal() {
+        maiorValorGlobal = JogoDAO.findMaxValuePerGame();
     }
 
     
