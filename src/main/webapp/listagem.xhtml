@@ -8,11 +8,11 @@
     <style>
         .btn-group {
             display: flex;
-            gap: 10px; 
+            gap: 5px; 
         }
         .btn-group .ui-button {
-            width: 100px; 
-        }
+	        width: 100px;
+    	}
     </style>
 </h:head>
 <h:body>
@@ -29,37 +29,37 @@
             <p:dataTable value="#{jogoBean.jogos}" var="jogo" editable="true" scrollable="true" scrollHeight="300" style="width: 100%;">
     
                 
-                <p:column headerText="ID" style="width: 100px;">
+                <p:column headerText="ID" style="width: 30px;">
                     <h:outputText value="#{jogo.id}" />
                 </p:column>
     
-                <p:column headerText="Data de Cadastro" style="width: 150px;">
+                <p:column headerText="Data de Cadastro" style="width: 60px;">
                     <h:outputText value="#{jogo.dataCadastro}">
                         <f:convertDateTime pattern="dd/MM/yyyy HH:mm" />
                     </h:outputText>
                 </p:column>
     
-                <p:column headerText="Número Sorteado" style="width: 150px;">
+                <p:column headerText="Número Sorteado" style="width: 30px;">
                     <h:outputText value="#{jogo.numeroSorteado}" />
                 </p:column>
     
-                <p:column headerText="V1" style="width: 100px;">
+                <p:column headerText="V1" style="width: 30px;">
                     <h:outputText value="#{jogo.v1}" />
                 </p:column>
     
-                <p:column headerText="V2" style="width: 100px;">
+                <p:column headerText="V2" style="width: 30px;">
                     <h:outputText value="#{jogo.v2}" />
                 </p:column>
     
-                <p:column headerText="V3" style="width: 100px;">
+                <p:column headerText="V3" style="width: 30px;">
                     <h:outputText value="#{jogo.v3}" />
                 </p:column>
     
-                <p:column headerText="V4" style="width: 100px;">
+                <p:column headerText="V4" style="width: 30px;">
                     <h:outputText value="#{jogo.v4}" />
                 </p:column>
     
-                <p:column headerText="V5" style="width: 100px;">
+                <p:column headerText="V5" style="width: 30px;">
                     <h:outputText value="#{jogo.v5}" />
                 </p:column>
     
@@ -95,12 +95,15 @@
             </p:dataTable>
         </h:panelGroup>
        
-       	<p:commandButton value="Calcular Maior Global"
-	                 	 action="#{jogoBean.calcularMaiorValorGlobal}"
-	                 	 update="formListagem" />
-   
-       	<h:outputLabel value="Maior valor entre todos os jogos:" />
-		<h:outputText value="#{jogoBean.maiorValorGlobal}" /> 
+       <p:commandButton value="Calcular Maior Global"
+                         action="#{jogoBean.calcularMaiorValorGlobal}"
+                         update="formListagem"
+                         style="margin-top: 30px" />
+
+        
+        <h:outputLabel value="Maior valor entre todos os jogos:" style="margin-top: 20px; margin-left: 25px;" />
+        <h:outputText value="#{jogoBean.maiorValorGlobal}" style="margin-top: 20px; margin-left: 10px;" /> 
+
        
         <p:dialog header="Maior valor" widgetVar="dlgMaior" modal="true" showEffect="fade" hideEffect="fade">
             <h:outputText value="O maior número entre v1 e v5 é: #{jogoBean.maiorValor}" />
