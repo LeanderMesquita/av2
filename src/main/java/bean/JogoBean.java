@@ -20,7 +20,8 @@ public class JogoBean {
     private Jogo jogo = new Jogo();
     private List<Jogo> jogos = new ArrayList<Jogo>();
     private int maiorValor;
-
+    private String resultado;
+    
     public Jogo getJogo() {
         return jogo;
     }
@@ -42,8 +43,11 @@ public class JogoBean {
         return maiorValor;
     }
 
+    public String getResultado() {
+		return resultado;
+	}
 
-    public String salvar() {
+	public String salvar() {
         jogo.setDataCadastro(new Date());
         jogo.setNumeroSorteado(new Random().nextInt(10) + 1); 
         
@@ -88,4 +92,20 @@ public class JogoBean {
         	maiorValor = Math.max(terceiraComparacao, jogo.getV5());
         }
     }
+    
+    public void retornarResultado(Jogo jogo) {
+        if (jogo != null) {
+            int numeroSorteado = jogo.getNumeroSorteado();
+            boolean acertou = (numeroSorteado == jogo.getV1() || 
+                               numeroSorteado == jogo.getV2() ||
+                               numeroSorteado == jogo.getV3() ||
+                               numeroSorteado == jogo.getV4() ||
+                               numeroSorteado == jogo.getV5());
+            resultado = acertou ? "Sim" : "Não"; 
+        } else {
+            resultado = "Não";
+        }
+    }
+
+    
 }

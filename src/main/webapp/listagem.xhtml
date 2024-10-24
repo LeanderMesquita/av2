@@ -83,6 +83,13 @@
                                          action="#{jogoBean.calcularMaior(jogo)}"
                                          update="formListagem"
                                          styleClass="ui-button-info"/>
+                                         
+                        <p:commandButton value="Resultado"
+						                 oncomplete="PF('dlgResultado').show()"
+						                 actionListener="#{jogoBean.retornarResultado(jogo)}"
+						                 update="formListagem"
+						                 styleClass="ui-button-info"/>
+
                     </h:panelGroup>
                 </p:column>
             </p:dataTable>
@@ -92,6 +99,11 @@
         <p:dialog header="Maior valor" widgetVar="dlgMaior" modal="true" showEffect="fade" hideEffect="fade">
             <h:outputText value="O maior número entre v1 e v5 é: #{jogoBean.maiorValor}" />
         </p:dialog>
+        
+        <p:dialog header="Resultado" widgetVar="dlgResultado" modal="true" showEffect="fade" hideEffect="fade">
+		    <h:outputText value="O resultado é: #{jogoBean.resultado}" />
+		</p:dialog>
+
 
     </h:form>
 
